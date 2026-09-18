@@ -12,3 +12,10 @@ console.log("Flatten array: ",flatten_array)
 console.log("***********************Change a value to an array**********************************")
 const randomValue ="Hamza"
 console.log(Array.from(randomValue))
+console.log(Array.from({name:"Hamza"})) //Interesting case, it will return an empty array unless we specify whether we want an array of keys or its values from an object.
+
+console.log("**********************combining non array values into a single array*****************")
+let score1=100
+let score2=200
+let score3=300
+console.log(Array.of(score1,score2,score3))
