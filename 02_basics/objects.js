@@ -1,5 +1,5 @@
-//When we declare an object through literals, its a singleton. From a constructor, it is multiple instances of an object.
-//Object.create(making multiple instances of and object through a constructor)
+//When we declare an object through literals, its not a singleton. From a constructor, it is a singleton.
+//Object.create(making singleton instances of and object through a constructor)
 
 //object literals (the usual way):
 const mySymbol=Symbol() //to make symbol a part of an object, we must decalre it outside an object first
