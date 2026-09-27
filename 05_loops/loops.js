@@ -40,7 +40,7 @@ arr.forEach((item,index,arrlist)=>{
     //console.log(item," : ",index," : ",arrlist)
 })
 
-//forEach for array of objects (VERY COMMON AND IMPORTANT)
+//forEach for array of objects (VERY COMMON AND IMPORTANT) (cannot be stored in a variable)
 const newObj= [
     {
         LanguageName:"Javascript",
@@ -54,5 +54,76 @@ const newObj= [
     }
 ]
 newObj.forEach((item)=>{
-    console.log(item.LanguageName)
+    //console.log(item.LanguageName)
 })
+//.filter(). work same as forEach just needs a condition to work and can be stored in a variable unlike forEach.
+const arr2=[1,2,3,4,5]
+const filtered= arr2.filter((num)=>{return num>2})
+//console.log(filtered)
+
+const booksCollection = [
+  {
+    title: "The Hobbit",
+    genre: "Fantasy",
+    author: "J.R.R. Tolkien",
+    publishDate: new Date("1937-09-21")
+  },
+  {
+    title: "Dune",
+    genre: "Sci-Fi",
+    author: "Frank Herbert",
+    publishDate: new Date("1965-08-01")
+  },
+  {
+    title: "To Kill a Mockingbird",
+    genre: "Fiction",
+    author: "Harper Lee",
+    publishDate: new Date("1960-07-11")
+  },
+  {
+    title: "1984",
+    genre: "Dystopian",
+    author: "George Orwell",
+    publishDate: new Date("1949-06-08")
+  },
+  {
+    title: "The Great Gatsby",
+    genre: "Fiction",
+    author: "F. Scott Fitzgerald",
+    publishDate: new Date("1925-04-10")
+  },
+  {
+    title: "Neuromancer",
+    genre: "Sci-Fi",
+    author: "William Gibson",
+    publishDate: new Date("1984-07-01")
+  },
+  {
+    title: "Pride and Prejudice",
+    genre: "Romance",
+    author: "Jane Austen",
+    publishDate: new Date("1813-01-28")
+  },
+  {
+    title: "The Catcher in the Rye",
+    genre: "Fiction",
+    author: "J.D. Salinger",
+    publishDate: new Date("1951-07-16")
+  },
+  {
+    title: "The Fellowship of the Ring",
+    genre: "Fantasy",
+    author: "J.R.R. Tolkien",
+    publishDate: new Date("1954-07-29")
+  },
+  {
+    title: "Brave New World",
+    genre: "Dystopian",
+    author: "Aldous Huxley",
+    publishDate: new Date("1932-08-30")
+  }
+];
+const userBooks= booksCollection.filter((book)=>{
+    return book.genre==="Fiction"
+})
+console.log(userBooks)
