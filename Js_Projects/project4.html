@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project 4-Guess The Number</title>
+    <style>
+         /* //Common Class */
+        .top{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin: auto;
+        padding: 25px;
+        align-items: center;
+    }
+    .reset-button{
+        font-size: 1rem;
+        padding: 25px;
+        border: 2px solid black;
+        font-weight: 200;
+        text-align: center;
+        background-color: white;
+            }
+        a{
+            text-decoration: none;
+            text-decoration-color:inherit ;
+            
+        }
+        /* Ends Here */
+        body{
+            font-family: sans-serif;
+            background-color: azure;
+            font-size: 2rem;
+        }
+        h2{
+            text-align: center;
+        }
+        .container{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            align-items: center;
+        }
+        input{
+            padding: 0.5rem 2rem;
+        }
+        button{
+            background-color: white;
+            padding: 0.5rem 1.2rem;
+            border: 2px solid black;
+            border-radius: 2px;
+            cursor: pointer;
+        }
+        .message{
+            text-align: center;
+            margin: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="top">
+        <div class="reset-button back_to_white">Project 4-Guess The Number</div>
+    <a href="index.html"><div class="project reset-button">Back To Home</div></a>
+    </div>
+    <h2>Guess The Number between 1-100</h2>
+    <div class="container">
+        <label>Guessed Number</label> <input type="text">
+        <button class="guess">Guess</button>
+        <button class="guess reset-guess">Reset</button>
+    </div>
+    <div class="message">Hi there</div>
+    
+</body>
+<script>
+    let randomNumber =Math.round((Math.random()*100)+1)
+    const resetButt = document.querySelector(".reset-guess")
+
+    const guessButt =document.querySelector("button")
+
+    const messageBox = document.querySelector(".message")
+
+    guessButt.addEventListener("click",()=>{
+        const guessedNum = document.querySelector("input").value
+        if(guessedNum=="" || isNaN(guessedNum)){
+            messageBox.innerHTML="Please Enter a valid number"
+
+        }
+        else if(guessedNum<1 || guessedNum>100){
+            messageBox.innerHTML="Please write a number between 0-100"
+        }
+        else if(guessedNum > randomNumber){
+            messageBox.innerHTML=`${guessedNum} is greater than ${randomNumber}`
+        }
+        else if(guessedNum<randomNumber){
+            messageBox.innerHTML=`${guessedNum} is less than ${randomNumber}`
+        }
+        else if(guessedNum==randomNumber){
+            messageBox.innerHTML=`Congragulations! You Guessed the right number ${guessedNum} = ${randomNumber}`
+        }
+    })
+
+    resetButt.addEventListener("click",()=>{
+        messageBox.innerHTML=""
+        document.querySelector("input").value=""
+        randomNumber= Math.round((Math.random()*100)+1)
+        
+    })
+
+</script>
+</html>

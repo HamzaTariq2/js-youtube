@@ -38,6 +38,7 @@
             background-color: bisque;
             gap:1rem;
             padding: 1rem;
+            flex-wrap: wrap;
         }
         input{
             padding:0.5rem;
@@ -80,7 +81,7 @@
                 results.innerHTML="Please enter a valid value"
                 return
             }
-            if(isNaN(heightCm) || isNan(weightKg)){
+            if(isNaN(heightCm) || isNaN(weightKg)){
                 results.innerHTML="Only numbers allowed. Please try again."
 
             }
@@ -92,7 +93,7 @@
         })
         reset.addEventListener("click",()=>{
             results.innerHTML=""
-            document.querySelector(".input-1").value = ""
+            document.querySelector(".input-1").value= ""
             document.querySelector(".input-2").value = ""
         })
     </script>

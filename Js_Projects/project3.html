@@ -4,8 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project 3-Digital Clock</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
 </head>
 <style>
+    body{
+        background-color: beige;
+    }
     /* //Common Class */
         .top{
         display: flex;
@@ -29,11 +33,36 @@
             
         }
         /* Ends Here */
+        .clock-container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 5rem;
+
+        }
 </style>
 <body>
     <div class="top">
         <div class="reset-button back_to_white">Project 3-Digital Clock</div>
     <a href="index.html"><div class="project reset-button">Back To Home</div></a>
     </div>
+    <div class="clock-container">
+        <div class="hours">1:</div>
+        <div class="mins">2:</div>
+        <div class="secs">3</div>
+    </div>
+    <script>
+        const runDigitalClock = ()=>{
+        const date = new Date()
+        const hours =document.querySelector(".hours").innerHTML=date.getHours().toString().padStart(2,0) + ":"
+        const mins = document.querySelector(".mins").innerHTML=date.getMinutes().toString().padStart(2,0) + ":"
+        const secs =document.querySelector(".secs").innerHTML=date.getSeconds().toString().padStart(2,0) 
+
+        }
+        setInterval(runDigitalClock,1000)
+        
+
+    </script>
 </body>
 </html>
