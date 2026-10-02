@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project 1-Color Changer</title>
+</head>
+<style>
+    .container{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+    }
+    .box{
+        height: 200px;
+        width: 200px;
+        border: 4px solid black;
+        font-family: sans-serif;
+        font-size: 2rem;
+        font-weight: bolder;
+    }
+    /* Common Class */
+    .top{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin: auto;
+        padding: 25px;
+        align-items: center;
+    }
+    .reset-button{
+        font-size: 1rem;
+        padding: 25px;
+        border: 2px solid black;
+        font-weight: 200;
+        text-align: center;
+        background-color: white;
+            }
+        a{
+            text-decoration: none;
+            text-decoration-color:inherit ;
+            
+        }
+        /* Ends Here */
+</style>
+
+<body>
+    <div class="top">
+        <div class="reset-button back_to_white">Reset Bg Back To White</div>
+    <a href="index.html"><div class="project reset-button">Back To Home</div></a>
+    </div>
+    
+    <div class="container">
+        <div class="box red" style="background-color: red;">RED</div>
+        <div class="box yellow" style="background-color: yellow;">YELLOW</div>
+        <div class="box blue" style="background-color: blue;">BLUE</div>
+        <div class="box green" style="background-color: green;">GREEN</div>
+    </div>
+    <script>
+        const colorChanger = document.querySelectorAll(".box")
+        const reset = document.querySelector(".back_to_white")
+        reset.addEventListener("click",(even)=>{
+            document.body.style.backgroundColor=event.target.style.backgroundColor
+
+        })
+        colorChanger.forEach((button)=>{
+            button.addEventListener("click",(event)=>{
+                document.body.style.backgroundColor=event.target.style.backgroundColor
+
+            })
+        })
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project 2-BMI Calculator</title>
+    <style>
+        /* //Common Class */
+        .top{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin: auto;
+        padding: 25px;
+        align-items: center;
+    }
+    .reset-button{
+        font-size: 1rem;
+        padding: 25px;
+        border: 2px solid black;
+        font-weight: 200;
+        text-align: center;
+        background-color: white;
+            }
+        a{
+            text-decoration: none;
+            text-decoration-color:inherit ;
+            
+        }
+        /* Ends Here */
+        .main{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+            font-family: sans-serif;
+            background-color: bisque;
+            gap:1rem;
+            padding: 1rem;
+        }
+        input{
+            padding:0.5rem;
+        }
+        button{
+            padding: 1rem;
+            font-weight: bold;
+            background-color: white;
+            border: 2px solid black;
+            box-shadow: x 2px 4px 2px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="top">
+        <div class="reset-button back_to_white">Project 2-BMI Calculator</div>
+    <a href="index.html"><div class="project reset-button">Back To Home</div></a>
+    </div>
+    <div class="main">
+        <h2 class="bmi">BMI Calculator</h2>
+    <div class="input-container">
+        <label>Height In cm</label> <input type="text" class="input-1"> <br>
+        <label>Weight in Kg</label> <input type="text" class="input-2"> 
+
+    </div>
+    <button class="calculate">Calculate</button>
+    <button class="reset">Reset</button>
+    <div class="result"></div>
+    </div>
+    <script>
+        const results = document.querySelector(".result")
+        const calculate = document.querySelector(".calculate")
+        const reset =document.querySelector(".reset")
+        calculate.addEventListener("click",()=>{
+            const heightCm = document.querySelector(".input-1").value
+            const weightKg = document.querySelector(".input-2").value
+            if (heightCm==="" || weightKg === ""){
+                results.innerHTML="Please enter a valid value"
+                return
+            }
+            if(isNaN(heightCm) || isNan(weightKg)){
+                results.innerHTML="Only numbers allowed. Please try again."
+
+            }
+            else{
+                const bmi = weightKg / ((heightCm / 100) ** 2)
+                results.innerHTML=`Your bmi is ${bmi}`
+
+            }
+        })
+        reset.addEventListener("click",()=>{
+            results.innerHTML=""
+            document.querySelector(".input-1").value = ""
+            document.querySelector(".input-2").value = ""
+        })
+    </script>
+    
+    
+</body>
+</html>
