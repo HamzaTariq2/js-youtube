@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript Events</title>
+</head>
+<body>
+    <ul class="images">
+        <a href="https://www.google.com/" class="google">Google.com</a>
+        <li class="image1"><img src="https://images.pexels.com/photos/39161184/pexels-photo-39161184.jpeg" alt="" width="200">
+
+</li>
+        <li class="image2"><img src="https://images.pexels.com/photos/32798775/pexels-photo-32798775.jpeg" alt="" width="200"></li>
+        <li class="image3"><img src="https://images.pexels.com/photos/39576469/pexels-photo-39576469.jpeg" alt="" width="200"></li>
+    </ul>
+    
+</body>
+<script>
+    //Lets study propogation:- Start
+    //Lets se we put a event listener on main container and also on a sub container inside it. which will run first?
+    //The default event listener runs from  bottom to top or false. called bubbling
+    //if we turn it true, it runs top to bottom.called capturing
+    //but if we stop propogation then only one will run.
+    //End
+
+    //Example 1: With false parametre (bottom to top). Also called event bubbling.
+    // document.querySelector(".images").addEventListener("click",(e)=>{
+    //     console.log("Main Clicked (2)")
+
+    // },false)
+    // document.querySelector(".image1").addEventListener("click",(e)=>{
+    //     console.log("The image one is also clicked as it was inside main (1)")
+    // },false)
+    
+    //Example 2: With true parametre (top to bottom). Also called event capturing.
+    //  document.querySelector(".images").addEventListener("click",(e)=>{
+    //     console.log("Main Clicked (1)")
+
+    // },true)
+    // document.querySelector(".image1").addEventListener("click",(e)=>{
+    //     console.log("The image one is also clicked as it was inside main (2)")
+    // },true)
+
+    //Example 3: Stop propogation
+    //  document.querySelector(".images").addEventListener("click",(e)=>{
+    //     console.log("Main Clicked (1)")
+
+    // },false)
+    // document.querySelector(".image1").addEventListener("click",(e)=>{
+    //     console.log("The image one is also clicked as it was inside main (2)")
+    //     e.stopPropagation()
+    // },false)
+
+    //e.preventDefault(). prevent default html bahaviour 
+    // document.querySelector(".google").addEventListener("click",(e)=>{
+    //     e.preventDefault()
+    // })
+
+    //Remove an image by clicking on it
+    document.querySelector(".images").addEventListener("click",(e)=>{
+        if(e.target.tagName === 'IMG'){
+            const removeParent = e.target.parentNode
+            removeParent.remove()
+        }
+    })
+
+
+
+</script>
+</html>
