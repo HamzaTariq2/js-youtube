@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async Javascript</title>
+    <style>
+        #start {
+            cursor: pointer;
+        }
+
+        #stop {
+            cursor: pointer;
+        }
+        /* Common Class */
+    .top{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin: auto;
+        padding: 25px;
+        align-items: center;
+    }
+    .reset-button{
+        font-size: 1rem;
+        padding: 25px;
+        border: 2px solid black;
+        font-weight: 200;
+        text-align: center;
+        background-color: white;
+            }
+        a{
+            text-decoration: none;
+            text-decoration-color:inherit ;
+            
+        }
+        /* Ends Here */
+    </style>
+</head>
+
+<body>
+    <div class="top">
+        <div class="reset-button back_to_white">Project 6: Async Unlimited colors </div>
+    <a href="index.html"><div class="project reset-button">Back To Home</div></a>
+    </div>
+    <div class="container">
+        <h1>Async Javascript</h1>
+        <button id="start">Start to randomly change background colors</button>
+        <button id="stop">Stop and reset</button>
+    </div>
+    <script>
+        //Project 1: Click on start to start changing bg colors and stop to stop it.
+        const changeColors = () => {
+            let hex = "#" + Math.floor(Math.random() * 16777216)
+            .toString(16)
+            .padStart(6, "0");
+            document.body.style.backgroundColor = `${hex}`
+        }
+        let startInterval
+        document.querySelector("#start").addEventListener('click', () => {
+            startInterval = setInterval(changeColors, 1000)
+            console.log("Started")
+        })
+        document.querySelector("#stop").addEventListener('click', () => {
+            clearInterval(startInterval)
+            console.log("Stopped")
+            document.body.style.backgroundColor = `white`
+        })
+    </script>
+
+</body>
+
+</html>
