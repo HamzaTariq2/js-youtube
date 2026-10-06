@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript Object Oriented Programming</title>
+</head>
+
+<body style="background-color: black;">
+    <script>
+        //Topic 1: Prototypes:
+        const employee = {
+            calcTax() {
+                console.log("tax rate is 10%")
+
+            }
+        }
+        //to use a method of one object into another we use obj1.__proto__ =originalObj (obj1=the object in which we want another object's method)
+        const newEmployee = {
+            salary: "1500",
+            calcTax() {
+                //if we decale a new method in the newEmployee object from the same name. it will overwrite it's prototype's method
+                console.log("tax rate for new employee is 20%")
+
+            }
+        }
+        newEmployee.__proto__ = employee
+        newEmployee.calcTax() //it will use the method of the original object. the employee has become the prototype of newEmployee
+
+        //Topic 2: Classes:
+        class ToyotaCar {
+    constructor(brand, mileage) {
+        console.log("creating new object");
+        this.brand = brand;
+        this.mileage = mileage;
+    }
+
+    start() {
+        console.log("start");
+    }
+
+    stop() {
+        console.log("stop");
+    }
+}
+
+let fortuner = new ToyotaCar("fortuner", 10);
+console.log(fortuner);
+
+let lexus = new ToyotaCar("lexus", 12);
+console.log(lexus);
+
+//Topic 3: Inheritance:
+class Person {
+    eat() {
+        console.log("person is eating");
+    }
+}
+
+class Student extends Person {
+    eat() {
+        console.log("student is eating");
+    }
+
+    study() {
+        console.log("student is studying");
+    }
+}
+
+let student1 = new Student();
+
+student1.eat();
+student1.study();
+
+//super(): calls parent's constructor first
+class Animal {
+    constructor(name) {
+        this.name = name
+    }
+}
+
+class Dog extends Animal {
+    constructor(name, breed) {
+        super(name)
+        this.breed = breed
+    }
+}
+
+let dog1 = new Dog("Bruno", "German Shepherd")
+
+console.log(dog1.name)
+console.log(dog1.breed)
+
+//super: super.method calls parent's method first
+class Animal {
+    speak() {
+        console.log("Animal makes a sound")
+    }
+}
+
+class Dog extends Animal {
+    speak() {
+        console.log("Dog barks")
+        super.speak()
+    }
+}
+
+let dog = new Dog()
+
+dog.speak()
+
+
+
+    </script>
+</body>
+
+</html>
