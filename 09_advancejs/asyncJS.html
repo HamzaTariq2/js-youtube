@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async Javascipt</title>
+</head>
+
+<body style="background-color: black;">
+    <script>
+        //Creating a promise, takes two functions as parametres
+        const myPromise = new Promise((resolve, reject) => {
+            const mathRandom = Math.floor(Math.random() * 2)  //either 0 or 1
+            if (mathRandom == 1) {
+                resolve() //we call the functions here
+            } else {
+                reject()
+            }
+        })
+
+        //Using the promise
+        myPromise.then(() => {
+            //console.log("Success") //if resolve() is TRUE, .then() will run
+        }).catch(() => {
+            //console.log("Failure") //if reject() is TRUE, .catch() will run
+        })
+
+        //with fetch u dont need to create a promise u can run a promise directly
+
+        
+        fetch('https://pokeapi.co/api/v2/pokemon/ditto')
+        .then((res)=>{
+            return res.json()
+
+        })
+        .then((data) => {
+            //console.log(data)
+            //console.log("Success")
+        })
+        .catch((err) => {
+            //console.log(err)
+            //console.log("Unsuccesfull") 
+        })
+
+            // res
+            // ↓
+            // Response object
+
+            // res.json()
+            // ↓
+            // Promise
+
+            // Promise finishes
+            // ↓
+            // JavaScript object
+
+            // .then((data) => ...)
+            // ↓
+            // data = JavaScript object
+
+        //Modern asynchronous javascript uses asyn/await. cleaner wau to write promises
+        const getData = async (url)=>{
+            const res =await fetch(url) //fetch gets a promise and await waits for the promise to finsih, when it finishes it goes into
+            //res as an response object
+            const data = await res.json() //then res.json() also returns a promise and wait for that promise to finishes, when it does
+            //it goes into data as a javascript object (from.json)
+            console.log("Data is Below:")
+            console.log(data) //final js object console logged
+        }
+        getData('https://pokeapi.co/api/v2/pokemon/ditto')
+
+    </script>
+</body>
+
+</html>
