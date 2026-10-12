@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Api Handling</title>
+</head>
+
+<body style="background-color: black;color: white;">
+
+
+    <script>
+        const apiHandler = async (url) => {
+            try {
+                const res = await fetch(url)
+                const data = await res.json()
+                document.body.innerHTML=`<p> The name from api: ${data.name}</p>
+                <p> The height from api : ${data.height}</p>
+                `
+            }
+            catch(error){
+                document.body.innerHTML=`<p> ERROR : ${error.message}</p>`
+            }
+
+        }
+        apiHandler("https://pokeapi.co/api/v2/pokemon/ditto")
+
+
+    </script>
+</body>
+
+</html>
