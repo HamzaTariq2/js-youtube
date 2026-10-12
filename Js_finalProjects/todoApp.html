@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do App</title>
+    <style>
+        .main-container {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .todo-container {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main-container">
+        <h1>To Do App</h1>
+        <div class="add-new-container">
+            <input type="text" class="add-new-input">
+            <button class="add-new-btn">+</button>
+        </div>
+        <div class="todo-container">
+            <input type="checkbox" class="check-box-input">
+            <p class="tasks">Cook Food</p>
+            <button class="delete">Delete</button>
+
+        </div>
+    </div>
+
+    <script>
+        const tasks = document.querySelector(".todo-container")
+        document.querySelector(".add-new-btn").addEventListener("click", () => {
+            const addNewTask = document.querySelector(".add-new-input").value
+            //add multiple html elements in a container using dom
+            const htmlMarkup = `
+            <input type="checkbox" class="check-box-input">
+            <p class="tasks">${addNewTask}</p>
+            <button class="delete">Delete</button>
+            `
+            tasks.insertAdjacentHTML("beforeend",htmlMarkup)
+
+
+
+        })
+    </script>
+</body>
+
+</html>
